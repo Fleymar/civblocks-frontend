@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        minecraft: ["var(--font-minecraft)"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
