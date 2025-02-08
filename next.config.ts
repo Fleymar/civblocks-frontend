@@ -5,7 +5,7 @@ console.log("NODE_ENV in next.config:", process.env.NODE_ENV);
 
 const nextConfig: NextConfig = {
   basePath: isProd ? '/nextjs-portfolio' : '',
-  assetPrefix: isProd ? './' : '',
+  assetPrefix: isProd ? '/nextjs-portfolio/' : undefined,
   output:'export',
   distDir: 'dist',
   trailingSlash: true,
