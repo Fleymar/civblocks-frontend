@@ -7,11 +7,7 @@ const nextConfig: NextConfig = {
   basePath: isProd ? '/nextjs-portfolio' : '',
   assetPrefix: isProd ? '/nextjs-portfolio/' : undefined,
   output:'export',
-  distDir: 'dist',
   trailingSlash: true,
-  images: {
-    unoptimized: true,
-  }
 };
 
 export default nextConfig;
