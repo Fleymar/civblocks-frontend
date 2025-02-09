@@ -2,8 +2,9 @@ import Image from "next/image";
 import { Brain, Bot, Code, GitBranch } from "lucide-react";
 import localFont from 'next/font/local';
 
+import TimelineSection from "./timelineSection";
 
-// Load Minecraft font
+
 const minecraftFont = localFont({
   src: '../../public/Minecrafter-MA3Dw.ttf',
   variable: '--font-minecraft'
@@ -11,14 +12,14 @@ const minecraftFont = localFont({
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 bg-[#2A4434] text-white">
-      <main className="flex flex-col gap-12 row-start-2 items-center w-full max-w-5xl">
+    <div className="grid grid-rows-[auto_1fr_auto] min-h-screen p-4 sm:p-8 bg-[#2A4434] text-white">
+      <main className="flex flex-col gap-8 items-center w-full max-w-5xl mx-auto py-8">
         {/* Hero Section */}
         <div className="text-center space-y-4">
           <h1 className={`text-5xl font-bold ${minecraftFont.variable} font-minecraft`}>
             CivBlocks
           </h1>
-          <p className="text-xl text-green-200">Building Autonomous Civilizations in Minecraft</p>
+          <p className="text-xl text-green-200">Simulating Autonomous Civilizations in Minecraft</p>
         </div>
 
         {/* Project Overview Cards */}
@@ -61,9 +62,8 @@ export default function Home() {
               <Image
                 src='./flowchart.png'
                 alt="Algorithm flowchart"
-                width={800}
-                height={450}
-                className="object-contain"
+                fill
+                className="object-cover"
               />
             </div>
             <p className="mt-4 text-green-200">Our agent&apos;s decision-making process flowchart</p>
@@ -95,7 +95,26 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <div className="bg-green-800/50 p-6 rounded-lg border-2 border-green-700">
+            <h3 className="text-xl font-bold mb-4">Agent Gameplay</h3>
+            <div className="aspect-video relative w-full bg-green-900/50 rounded-lg overflow-hidden">
+              <video 
+                className="w-full h-full rounded-lg"
+                controls
+                poster="/api/placeholder/800/450"
+              >
+                <source src="path_to_your_video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <p className="mt-4 text-green-200">Here&apos;s a quick showcase of our agent exploring the minecraft world</p>
+          </div>
+
+
         </div>
+
+
+        
 
         {/* Development Timeline */}
         <div className="w-full bg-green-800/50 p-6 rounded-lg border-2 border-green-700">
@@ -103,26 +122,13 @@ export default function Home() {
             <GitBranch className="w-6 h-6" />
             <h2 className="text-xl font-bold">Project Timeline</h2>
           </div>
-          <div className="space-y-6">
-            <div className="border-l-2 border-green-500 pl-4">
-              <h3 className="text-lg font-semibold">Phase 1: Basic Agent Implementation</h3>
-              <p className="text-green-200">Initial autonomous movement, basic interactions, and environment recognition</p>
-            </div>
-            <div className="border-l-2 border-green-500 pl-4">
-              <h3 className="text-lg font-semibold">Phase 2: Advanced Cognition</h3>
-              <p className="text-green-200">Memory systems, goal evaluation, and semantic understanding</p>
-            </div>
-            <div className="border-l-2 border-green-500 pl-4">
-              <h3 className="text-lg font-semibold">Current: Visual Analysis</h3>
-              <p className="text-green-200">Implementing advanced visual recognition and semantic understanding</p>
-            </div>
-          </div>
+          <TimelineSection />
         </div>
 
         {/* GitHub Link */}
         <a
           className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-green-600 hover:bg-green-700 gap-2 text-white text-sm sm:text-base h-12 px-6"
-          href="https://github.com/yourusername/civblocks"
+          href="https://github.com/Peace0fCake/CivBlocks"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -132,7 +138,7 @@ export default function Home() {
       </main>
 
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center text-green-200">
-        <p>© 2024 CivBlocks Project</p>
+        <p>© 2024-2025 CivBlocks Project</p>
       </footer>
     </div>
   );
