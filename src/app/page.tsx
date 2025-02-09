@@ -3,6 +3,7 @@ import { Brain, Bot, Code, GitBranch } from "lucide-react";
 import localFont from 'next/font/local';
 import TimelineSection from "./timelineSection";
 import GameExamplesCarousel from "./gameExamplesCarousel";
+import TeamSection from "./TeamSection";
 
 const minecraftFont = localFont({
   src: '../../public/Minecrafter-MA3Dw.ttf',
@@ -130,6 +131,9 @@ export default function Home() {
           </div>
           <TimelineSection />
         </div>
+
+        {/* Team Section */}
+        <TeamSection />
 
         {/* GitHub Link */}
         <a
