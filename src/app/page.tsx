@@ -3,6 +3,7 @@ import { Brain, Bot, Code, GitBranch } from "lucide-react";
 import localFont from 'next/font/local';
 
 import TimelineSection from "./timelineSection";
+import GameExamplesCarousel  from "./gameExamplesCarousel";
 
 
 const minecraftFont = localFont({
@@ -16,7 +17,7 @@ export default function Home() {
       <main className="flex flex-col gap-8 items-center w-full max-w-5xl mx-auto py-8">
         {/* Hero Section */}
         <div className="text-center space-y-4">
-          <h1 className={`text-5xl font-bold ${minecraftFont.variable} font-minecraft`}>
+          <h1 className={`text-9xl font-bold ${minecraftFont.variable} font-minecraft`}>
             CivBlocks
           </h1>
           <p className="text-xl text-green-200">Simulating Autonomous Civilizations in Minecraft</p>
@@ -70,31 +71,7 @@ export default function Home() {
           </div>
 
           {/* In-game Examples Grid */}
-          <div className="bg-green-800/50 p-6 rounded-lg border-2 border-green-700">
-            <h3 className="text-xl font-bold mb-4">In-game Examples</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="aspect-video relative bg-green-900/50 rounded-lg overflow-hidden">
-                <Image
-                  src="./next.svg"
-                  alt="Agent building example"
-                  width={400}
-                  height={225}
-                  className="object-cover"
-                />
-                <p className="absolute bottom-0 left-0 right-0 bg-black/50 p-2 text-sm">Building Capabilities</p>
-              </div>
-              <div className="aspect-video relative bg-green-900/50 rounded-lg overflow-hidden">
-                <Image
-                  src="./next.svg"
-                  alt="Resource gathering example"
-                  width={400}
-                  height={225}
-                  className="object-cover"
-                />
-                <p className="absolute bottom-0 left-0 right-0 bg-black/50 p-2 text-sm">Resource Management</p>
-              </div>
-            </div>
-          </div>
+          <GameExamplesCarousel />
           <div className="bg-green-800/50 p-6 rounded-lg border-2 border-green-700">
             <h3 className="text-xl font-bold mb-4">Agent Gameplay</h3>
             <div className="aspect-video relative w-full bg-green-900/50 rounded-lg overflow-hidden">
@@ -112,9 +89,6 @@ export default function Home() {
 
 
         </div>
-
-
-        
 
         {/* Development Timeline */}
         <div className="w-full bg-green-800/50 p-6 rounded-lg border-2 border-green-700">
