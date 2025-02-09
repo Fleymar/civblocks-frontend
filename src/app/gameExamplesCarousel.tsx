@@ -7,27 +7,27 @@ const GameExamplesCarousel = () => {
   const examples = [
     {
       id: 1,
-      image: "./next.svg",
+      image: "./build.png",
       title: "Building Capabilities",
       alt: "Agent building example"
     },
     {
       id: 2,
-      image: "./globe.svg",
-      title: "Resource Management",
-      alt: "Resource gathering example"
+      image: "./EquipmentSharing.png",
+      title: "Equipment Sharing",
+      alt: "Equipment sharing example"
     },
     {
       id: 3,
-      image: "./vercel.svg",
-      title: "Combat System",
-      alt: "Combat example"
+      image: "./hunting.png",
+      title: "Hunting and Combat",
+      alt: "Hunting example"
     },
     {
       id: 4,
-      image: "./flowchart.png",
-      title: "Village Interaction",
-      alt: "Village interaction example"
+      image: "./longterm.png",
+      title: "Long Term Planning",
+      alt: "Planning example"
     }
   ];
 
@@ -38,7 +38,7 @@ const GameExamplesCarousel = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentPage((prev) => (prev + 1) % totalPages);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [totalPages]);
@@ -58,15 +58,17 @@ const GameExamplesCarousel = () => {
                 key={example.id}
                 className="aspect-video relative bg-gray-900/50 rounded-xl overflow-hidden transition-all duration-500"
               >
-                <Image
-                  src={example.image}
-                  alt={example.alt}
-                  width={400}
-                  height={225}
-                  className="object-cover"
-                />
+                <div className="absolute inset-0">
+                  <Image
+                    src={example.image}
+                    alt={example.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
-                <p className="absolute bottom-0 left-0 right-0 p-4 text-sm font-medium">
+                <p className="absolute bottom-0 left-0 right-0 p-4 text-sm font-medium z-10">
                   {example.title}
                 </p>
               </div>
