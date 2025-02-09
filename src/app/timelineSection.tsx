@@ -87,23 +87,23 @@ const TimelineSection = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {timelineData.map((phase) => (
         <div 
           key={phase.id}
-          className="border-l-2 border-green-500 pl-4"
+          className="relative border-l-2 border-blue-500/30 pl-6 before:absolute before:left-[-5px] before:top-[24px] before:w-2 before:h-2 before:rounded-full before:bg-blue-400"
         >
           <button
             onClick={() => togglePhase(phase.id)}
-            className="w-full text-left flex items-center justify-between group"
+            className="w-full text-left flex items-center justify-between hover:bg-gray-800/50 p-3 rounded-lg transition-all"
           >
-            <div>
-              <h3 className="text-lg font-semibold group-hover:text-green-300 transition-colors">
+            <div className="space-y-1">
+              <h3 className="text-lg font-semibold text-blue-400 hover:text-blue-300 transition-colors">
                 {phase.title}
               </h3>
-              <p className="text-green-200">{phase.summary}</p>
+              <p className="text-gray-400">{phase.summary}</p>
             </div>
-            <div className="text-green-300">
+            <div className="text-blue-400">
               {expandedPhases.includes(phase.id) ? (
                 <ChevronDown className="w-5 h-5" />
               ) : (
@@ -122,10 +122,12 @@ const TimelineSection = () => {
             {phase.details.map((detail, index) => (
               <div 
                 key={index}
-                className="pl-4 border-l border-green-600"
+                className="relative pl-6 border-l border-purple-500/30 ml-2 before:absolute before:left-[-4px] before:top-[12px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-purple-400/50 hover:bg-gray-800/30 p-3 rounded-lg transition-all"
               >
-                <h4 className="font-medium text-green-100">{detail.title}</h4>
-                <p className="text-green-200 text-sm mt-1">{detail.description}</p>
+                <h4 className="font-medium text-gray-200 hover:text-blue-300 transition-colors">
+                  {detail.title}
+                </h4>
+                <p className="text-gray-400 text-sm mt-1">{detail.description}</p>
               </div>
             ))}
           </div>

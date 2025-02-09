@@ -38,16 +38,16 @@ const GameExamplesCarousel = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentPage((prev) => (prev + 1) % totalPages);
-    }, 3000); 
+    }, 3000);
 
     return () => clearInterval(timer);
   }, [totalPages]);
 
   return (
-    <div className="bg-green-800/50 p-6 rounded-lg border-2 border-green-700">
-      <h3 className="text-xl font-bold mb-4">In-game Examples</h3>
+    <div className="group bg-gray-800/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300">
+      <h3 className="text-xl font-bold mb-6">In-game Examples</h3>
       <div className="relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {examples
             .slice(
               currentPage * itemsPerPage,
@@ -56,7 +56,7 @@ const GameExamplesCarousel = () => {
             .map((example) => (
               <div
                 key={example.id}
-                className="aspect-video relative bg-green-900/50 rounded-lg overflow-hidden transition-opacity duration-500"
+                className="aspect-video relative bg-gray-900/50 rounded-xl overflow-hidden transition-all duration-500"
               >
                 <Image
                   src={example.image}
@@ -65,7 +65,8 @@ const GameExamplesCarousel = () => {
                   height={225}
                   className="object-cover"
                 />
-                <p className="absolute bottom-0 left-0 right-0 bg-black/50 p-2 text-sm">
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
+                <p className="absolute bottom-0 left-0 right-0 p-4 text-sm font-medium">
                   {example.title}
                 </p>
               </div>
@@ -73,15 +74,15 @@ const GameExamplesCarousel = () => {
         </div>
 
         {/* Navigation Dots */}
-        <div className="flex justify-center mt-4 gap-2">
+        <div className="flex justify-center mt-6 gap-2">
           {Array.from({ length: totalPages }).map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentPage(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 currentPage === index
-                  ? "bg-green-400 w-4"
-                  : "bg-green-600 hover:bg-green-500"
+                  ? "w-6 bg-blue-400"
+                  : "bg-gray-600 hover:bg-gray-500"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
