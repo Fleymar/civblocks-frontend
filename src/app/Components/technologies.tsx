@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { ExternalLink, X } from 'lucide-react';
+import { ExternalLink, X, Brain } from 'lucide-react';
 import Image from 'next/image';
 
 const TechnologiesSection = () => {
@@ -9,7 +9,8 @@ const TechnologiesSection = () => {
     id: number;
     name: string;
     description: string;
-    logo: string;
+    logo?: string;
+    icon?: React.ComponentType<{ className?: string }>;
     link: string;
     linkText: string;
   }
@@ -40,6 +41,14 @@ const TechnologiesSection = () => {
       logo: "./minecraft-logo.png",
       link: "https://www.minecraft.net/fr-fr",
       linkText: "Official website"
+    },
+    {
+      id: 4,
+      name: "Mindcraft",
+      description: "The core of the project, An open-source project that allows developers to link LLMs to mineflayer commands",
+      icon: Brain,
+      link: "https://github.com/kolbytn/mindcraft",
+      linkText: "GitHub Repository"
     }
   ];
 
@@ -47,10 +56,10 @@ const TechnologiesSection = () => {
     <div className="w-full bg-gray-800/50 backdrop-blur-sm p-12 rounded-2xl border border-gray-700">
       <div className="text-center max-w-2xl mx-auto">
         <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 mb-12">
-          Technologies Used
+          Used Technologies
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {technologies.map(tech => (
             <button
               key={tech.id}
@@ -60,14 +69,20 @@ const TechnologiesSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative z-10">
                 <div className="h-24 w-full flex items-center justify-center mb-4">
-                  <div className="relative w-32 h-16 flex items-center justify-center">
-                    <Image
-                      src={tech.logo}
-                      alt={`${tech.name} logo`}
-                      fill
-                      className="object-contain filter brightness-100 group-hover:brightness-110 transition-all p-2"
-                    />
-                  </div>
+                  {tech.logo ? (
+                    <div className="relative w-32 h-16 flex items-center justify-center">
+                      <Image
+                        src={tech.logo}
+                        alt={`${tech.name} logo`}
+                        fill
+                        className="object-contain filter brightness-100 group-hover:brightness-110 transition-all p-2"
+                      />
+                    </div>
+                  ) : tech.icon ? (
+                    <div className="w-16 h-16 flex items-center justify-center">
+                      <tech.icon className="w-12 h-12 text-blue-400 group-hover:text-blue-300 transition-colors" />
+                    </div>
+                  ) : null}
                 </div>
                 <h3 className="text-xl font-semibold text-gray-100 mb-2">{tech.name}</h3>
               </div>
@@ -90,14 +105,20 @@ const TechnologiesSection = () => {
             </button>
 
             <div className="text-center space-y-6">
-              <div className="relative w-48 h-24 mx-auto">
-                <Image
-                  src={selectedTech.logo}
-                  alt={`${selectedTech.name} logo`}
-                  fill
-                  className="object-contain p-2"
-                />
-              </div>
+              {selectedTech.logo ? (
+                <div className="relative w-48 h-24 mx-auto">
+                  <Image
+                    src={selectedTech.logo}
+                    alt={`${selectedTech.name} logo`}
+                    fill
+                    className="object-contain p-2"
+                  />
+                </div>
+              ) : selectedTech.icon ? (
+                <div className="w-24 h-24 mx-auto flex items-center justify-center">
+                  <selectedTech.icon className="w-16 h-16 text-blue-400" />
+                </div>
+              ) : null}
               
               <div>
                 <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
