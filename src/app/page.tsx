@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { Brain, Bot, Code, GitBranch } from "lucide-react";
 import localFont from 'next/font/local';
-import TimelineSection from "./timelineSection";
-import GameExamplesCarousel from "./gameExamplesCarousel";
-import TeamSection from "./TeamSection";
+
+import TimelineSection from "./Components/timelineSection";
+import GameExamplesCarousel from "./Components/gameExamplesCarousel";
+import TeamSection from "./Components/TeamSection";
+import TechnologiesSection from "./Components/technologies";
 
 const minecraftFont = localFont({
   src: '../../public/Minecrafter-MA3Dw.ttf',
@@ -131,6 +133,10 @@ export default function Home() {
           </div>
           <TimelineSection />
         </div>
+          
+        {/* Technologies Section */}
+
+        <TechnologiesSection />
 
         {/* Team Section */}
         <TeamSection />
