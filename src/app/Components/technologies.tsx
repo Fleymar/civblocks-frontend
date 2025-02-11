@@ -21,7 +21,7 @@ const TechnologiesSection = () => {
       id: 1,
       name: "ChromaDB",
       description: "ChromaDB is an open-source embedding database designed for AI applications. It enables efficient storage and retrieval of vector embeddings, making it perfect for semantic search and AI memory systems.",
-      logo: "/chroma-logo.png",
+      logo: "./chroma-logo.png",
       link: "https://www.trychroma.com/",
       linkText: "Official Documentation"
     },
@@ -29,7 +29,7 @@ const TechnologiesSection = () => {
       id: 2,
       name: "Ollama",
       description: "Ollama is a framework for running large language models locally. It allows for easy setup and management of various LLMs, providing a lightweight solution for AI model deployment.",
-      logo: "/ollama-logo.png",
+      logo: "./ollama-logo.png",
       link: "https://ollama.ai/",
       linkText: "Official website"
     },
@@ -37,7 +37,7 @@ const TechnologiesSection = () => {
       id: 3,
       name: "Minecraft",
       description: "The sandbox game provides the perfect environment for AI experimentation. Using Minecraft as the environnement allows us to create autonomous agents that interact with a complex, dynamic world.",
-      logo: "/minecraft-logo.png",
+      logo: "./minecraft-logo.png",
       link: "https://www.minecraft.net/fr-fr",
       linkText: "Official website"
     }
